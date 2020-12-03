@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+ol,
+ul {
+  list-style: none;
+}
+img {
+  width: 100%;
+  height: auto;
+}
+a {
+  text-decoration: none;
+}
+
+/* Accessibility */
+.for-a11y {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+caption.for-a11y {
+  display: absolute;
+  position: static;
+  height: 1px;
+  margin-bottom: -1px;
+}
+
+/* clear fix */
+.clear-fix {
+  *zoom: 1;
+}
+.clear-fix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
