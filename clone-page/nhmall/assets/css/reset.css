@@ -37,7 +37,7 @@ a {
 }
 
 /* Accessibility */
-.for-a11y {
+.blind {
   position: absolute;
   white-space: nowrap;
   width: 1px;
@@ -49,7 +49,7 @@ a {
   clip-path: inset(50%);
   margin: -1px;
 }
-caption.for-a11y {
+caption.blind {
   display: absolute;
   position: static;
   height: 1px;
