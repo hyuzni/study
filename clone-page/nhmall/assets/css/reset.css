@@ -45,6 +45,7 @@ dl {
   list-style: none;
 }
 img {
+  display: block;
   width: 100%;
   height: auto;
 }
