@@ -1,3 +1,16 @@
+@font-face {
+  font-family: Noto Sans KR;
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/NotoSansKr-Black.eot"); /* ie 호환성 보기 고려 */
+  src: url("../fonts/NotoSansKr-Black.eot?#iefix") formet("embedded-opentype"), /* only IE8 below */
+       url("../fonts/NotoSansKr-Black.woff2"), /* web open font format Lightweight */
+       url("../fonts/NotoSansKr-Black.woff"), /* web open font format */
+       url("../fonts/NotoSansKr-Black.ttf"), /* true type format (컴퓨터 서체 파일) */
+       url("../fonts/NotoSansKr-Black.otf"); /* open type format (컴퓨터 서체 파일) */
+       /* url("../fonts/NotoSansKr-Black.svg"),  scalable vector graphic */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,6 +18,7 @@
   outline: none;
   vertical-align: baseline;
   box-sizing: border-box;
+  -webkit-text-size-adjust: none;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -25,7 +39,9 @@ table {
   border-spacing: 0;
 }
 ol,
-ul {
+ul,
+li,
+dl {
   list-style: none;
 }
 img {
@@ -33,7 +49,22 @@ img {
   height: auto;
 }
 a {
+  color: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 400;
+  color: #262626;
+  font-size: 14px;
+}
+strong,
+b {
+  font-weight: 600;
 }
 
 /* Accessibility */
