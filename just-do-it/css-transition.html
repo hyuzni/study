@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box .move-item {
+        transition: all 0.3s linear;
+        height: 500px;
+        background-color: red;
+        overflow: hidden;
+      }
+      .box.moving .move-item {
+        height: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box" onclick="setClass();">
+      <div class="move-item">
+        <p>움직여보자아</p>
+        <p>움직여보자아</p>
+        <p>움직여보자아</p>
+        <p>
+          움직여보자아<br />dkdkdkd<br />dkdkdkd<br />dkdkdkd<br />dkdkdkd<br />dkdkdkd<br />dkdkdkd
+        </p>
+        <p>움직여보자아</p>
+        <p>움직여보자아</p>
+        <p>움직여보자아</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    function setClass() {
+      let item = document.querySelector(".box")
+      item.className += " moving"
+    }
+  </script>
+</html>

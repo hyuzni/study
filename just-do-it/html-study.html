@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 
+      문자 인코딩 방식을 명시
+      아래는 HTML 4.01 문법임.
+      (HTML5에서도 허용하지만 위 charset="UTF-8" 로 간단하게 명시 가능) 
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+      ** http-equiv : 서버나 사용자 에이전트의 작동방식을 변경할 수 있는 지시를 정의(?)
+                      HTTP 응답 헤더를 시뮬레이션할 때 사용. 반드시 content 속성도 함께 명시
+    -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <!-- 문자의 인코딩 방식을 지정 -->
+    <meta http-equiv="default-style" content="./base.css" />
+    <!-- 사용할 기본 스타일 시트를 지정 -->
+    <meta http-equiv="refresh" content="30;URL=http://www.naver.com" />
+    <!-- 새로고침 후 페이지 이동. url없으면 새로고침만 -->
+    <meta http-equiv="content-style-type" content="text/javascript" />
+    <!-- 웹페이지에 쓰인 언어 지정 -->
+    <meta http-equiv="content-style-type" content="text/css" />
+    <!-- 웹페이지에 쓰인 언어 지정 -->
+    <meta http-equiv="x-ua-compatible" content="IE=edge" />
+    <!-- 브라우저 호환성을 지정 -->
+    <meta http-equiv="subject" content="study html tag" />
+    <!-- 홈페이지 주제 -->
+    <meta http-equiv="title" content="study | hyuzni" />
+    <!-- 홈페이지 제목 -->
+    <meta http-equiv="publisher" content="hyuzni Company" />
+    <!-- 제작사 이름 -->
+    <meta http-equiv="Expires" content="-1" />
+    <!-- 캐쉬 만료시간 정의.(분 단위) -1: 캐쉬를 지우고 새롭게 읽어옴 -->
+
+    <meta name="application-name" content="study html" />
+    <!-- 모바일에서 '홈 화면에 추가'할 때 이름 -->
+    <meta name="author" content="hyuzni" />
+    <!-- 페이지 제작자 이름 -->
+    <meta name="discription" content="This is HTML page description for Search Engine Optimization" />
+    <!-- 페이지 설명 -->
+    <meta name="generator" content="VS CODE" />
+    <!-- 문서 작성에 사용한 도구 -->
+    <meta name="keyword" content="html, study, hyuzni, forSEO" />
+    <!-- 검색엔진에서 검색될 단어들을 지정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 
+      viewport : 모바일 보기를 지원
+      width=device-width : width는 device 가로 크기. height 도 되지만 대부분 쓰지 않음.
+      initial-scale=1.0
+      minimum-scale=1.0
+      maximum-scale=3.0
+      user-scalable=no
+    -->
+    <meta name="robots" content="all" />
+    <!-- 
+      검색엔진 관련 설정. 
+      content="noindex, nofollow" : 위 meta tag가 포함된 페이지는 검색엔진에 색인되지 않음.
+    -->
+    <title>study | hyuzni</title>
+    <style>
+      .header {
+        text-transform: uppercase; /* 대문자로 변경 */
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      COMMENT
+
+      Semantic Elements in HTML
+      <article>	    Defines independent, self-contained content
+      <aside>	      Defines content aside from the page content
+      <details>	    Defines additional details that the user can view or hide
+      <figcaption>  Defines a caption for a <figure> element
+      <figure>	    Specifies self-contained content, like illustrations, diagrams, photos, code listings, etc.
+      <footer>	    Defines a footer for a document or section
+      <header>	    Specifies a header for a document or section
+      <main>	      Specifies the main content of a document
+      <mark>	      Defines marked/highlighted text
+      <nav>	        Defines navigation links
+      <section>	    Defines a section in a document
+      <summary>	    Defines a visible heading for a <details> element
+      <time>	      Defines a date/time
+    -->
+
+    <!-- basic layout -->
+    <div class="wrap">
+      <header>
+        <!-- 
+          one or more heading elements (<h1> - <h6>)
+          logo or icon
+          authorship information
+        -->
+        <h1>main | page name</h1>
+        <nav class="gnb">gnb | Global Navigation Bar</nav>
+        <div class="user-util">util | utilily</div>
+      </header>
+      <main>
+        <nav class="lnb">lnb | Local Navigation Bar</nav>
+        <section class="container">
+          <section>
+            <article></article>
+            <article></article>
+          </section>
+          <section>
+            <article></article>
+          </section>
+          <section>
+            <article></article>
+          </section>
+        </section>
+        <aside>
+          <div class="main-util"></div>
+        </aside>
+      </main>
+      <footer>
+        <!-- 
+          authorship information
+          copyright information
+          contact information
+          sitemap
+          back to top links
+          related documents
+        -->
+        <address></address>
+        <a href="tel:0000-0000">전화</a>
+        <small>&copy;<!--copyright --> </small>
+      </footer>
+    </div>
+  </body>
+</html>
