@@ -1,0 +1,22 @@
+{
+  "name": "study",
+  "version": "1.0.0",
+  "description": "just study",
+  "main": "index.js",
+  "scripts": {
+    "test": "hahahahahaha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyuzni/study.git"
+  },
+  "author": "hyuzni",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyuzni/study/issues"
+  },
+  "homepage": "https://github.com/hyuzni/study#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
