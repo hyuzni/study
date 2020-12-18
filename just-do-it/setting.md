@@ -15,15 +15,16 @@ $npm install -g npm // npm 업데이트
 
 package.json // npm을 통해 생성되는 node 관련 컴포넌트들의 의존성을 관리하는 모듈(maven 의 pom.xml과 같은 역할)
 
-$npm install express --save // express 모듈 설치
+- express module 설치
+  $npm install express --save
 
 - npm 실행 구문 설명
-
-$npm install [module] [option]
-[option] 에 --save란?
-package.json 에 node module 정보를 바로 등록하는 옵션
+  $npm install [module] [option]
+  [option] 에 --save란?
+  package.json 에 node module 정보를 바로 등록하는 옵션
 
 express모듈을 설치하면 package-lock.json 과 node_modules 디렉토리가 생김
 
 express 모듈로 구현. app.js 참고
 $node app.js
+Ctrl+c // 서버 꺼짐
