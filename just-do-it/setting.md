@@ -28,3 +28,21 @@ express모듈을 설치하면 package-lock.json 과 node_modules 디렉토리가
 express 모듈로 구현. app.js 참고
 $node app.js
 Ctrl+c // 서버 꺼짐
+
+- pm2 module 설치
+  $npm install pm2 -g
+
+pm2 ? production process manager for Node.js
+
+- powershell 관리자 권한 설정
+
+1. powershell > 관리자 권한으로 실행
+2. $get-help Set-ExecutionPolicy : 'y' 권한설정 모듈 실행
+3. $Set-ExcutionPolicy [option]
+   : option
+   Restricted : PowerShell의 실행 권한 정책 중 기본적으로 적용되어 있는 옵션. ps1 스크립트 파일을 로드하여 실행할 수 없는 정책
+   AllSigned : 신뢰된 배포자에 의해 서명된 스크립트만 실행 할 수 있는 정책
+   RemoteSigned : 로컬 컴퓨터에서 본인이 생성한 스크립트만 실행 가능, 또는 인터넷에서 다운로드 받은 스크립트는 신뢰된 배포자에 의해 서명된 것만 실행 가능한 정책 (이걸로 사용)
+   Unrestricted : 제한 없이 모든 스크립트 실행 가능한 정책
+   ByPass : 어떤 것도 차단하지 않고 경고 없이 실행 가능한 정책
+   Undefined : 정책 적용 안함
