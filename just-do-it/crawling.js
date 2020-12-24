@@ -10,6 +10,6 @@ options = {
 download
   .image(options)
   .then(({ filename }) => {
-    console.log("Saved to", filename) // saved to /path/to/dest/photo
+    console.log("Saved to", filename) // saved to /download/images
   })
   .catch((err) => console.error(err))
