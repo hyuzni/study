@@ -34,6 +34,10 @@ Ctrl+c // 서버 꺼짐
 
 pm2 ? production process manager for Node.js
 
+pm2 setting
+npm install pm2 -g
+powershell 관리자모드 실행 > Get-ExcutionPolicy > 권한확인 > Set-ExcutionPolicy RemoteSigned
+
 - powershell 관리자 권한 설정
 
 1. powershell > 관리자 권한으로 실행
