@@ -28,3 +28,7 @@ express모듈을 설치하면 package-lock.json 과 node_modules 디렉토리가
 express 모듈로 구현. app.js 참고
 $node app.js
 Ctrl+c // 서버 꺼짐
+
+pm2 setting
+npm install pm2 -g
+powershell 관리자모드 실행 > Get-ExcutionPolicy > 권한확인 > Set-ExcutionPolicy RemoteSigned
