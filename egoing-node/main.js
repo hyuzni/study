@@ -66,7 +66,7 @@ var app = http.createServer(function (request, response) {
         title,
         list,
         `
-          <form action="http://localhost:4000/create_process" method="post">
+          <form action="/create_process" method="post">
             <p><input type="text" name="title" placeholder="title" /></p>
             <p>
               <textarea name="description" placeholder="description"></textarea>
@@ -114,7 +114,7 @@ var app = http.createServer(function (request, response) {
             `
               <form action="/update_process" method="post">
                 <p>
-                  <input type="hidden" id="title" value="${title}"/>
+                  <input type="hidden" name="id" value="${title}"/>
                   <input type="text" name="title" placeholder="title" value="${title}"/></p>
                 <p>
                   <textarea name="description" placeholder="description">${content}</textarea>
@@ -125,6 +125,25 @@ var app = http.createServer(function (request, response) {
             ""
           )
         )
+      })
+    })
+  } else if (pathname === "/update_process") {
+    var body = ""
+    request.on("data", (data) => {
+      body = body + data
+    })
+    request.on("end", () => {
+      var post = qs.parse(body)
+      var id = post.id
+      var title = post.title
+      var description = post.description
+
+      fs.rename(`data/${id}`, `data/${title}`, (err) => {})
+
+      console.log(post)
+      fs.writeFile(`data/${title}`, description, "utf-8", (err) => {
+        response.writeHead(302, { Location: `/?id=${title}` }) // 302 : page redirection
+        response.end("success")
       })
     })
   } else {
