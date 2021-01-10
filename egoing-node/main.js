@@ -3,48 +3,19 @@ var fs = require("fs") // file system
 var qs = require("querystring")
 var url = require("url")
 const { query } = require("express")
+var path = require("path")
 
-function templateHTML(title, list, content, control) {
-  var template = `
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <title>WEB | ${title}</title>
-      <meta charset="utf-8" />
-    </head>
-    <body>
-      <h1><a href="/">${title}</a></h1>
-      ${list}
-      ${control}
-      <h2>${title}</h2>
-      ${content}
-    </body>
-  </html>`
+var template = require("./lib/template.js")
 
-  return template
-}
-
-function templateList(files) {
-  if (files.length === 0) {
-    return
-  }
-  var list = `<ul>`
-  files.forEach((file) => {
-    list += `<li><a href="?id=${file}">${file}</a></li>`
-  })
-  list += `</ul>`
-
-  return list
-}
 var app = http.createServer(function (request, response) {
   var _url = request.url
   var queryData = url.parse(_url, true).query
   var pathname = url.parse(_url, true).pathname
-  var title = queryData.id
+  var title = path.basename(queryData.id)
 
   if (pathname === "/") {
     fs.readdir("data", (err, files) => {
-      var list = templateList(files)
+      var list = template.LIST(files)
       var control = ""
       fs.readFile(`data/${title}`, "utf-8", (err, content) => {
         if (title === undefined) {
@@ -52,17 +23,23 @@ var app = http.createServer(function (request, response) {
           content = "hello, node js"
           control = `<a href="/create">create</a>`
         } else {
-          control = `<a href="/create">create</a> <a href="/update?id=${title}">update</a>`
+          control = `<a href="/create">create</a> 
+                     <a href="/update?id=${title}">update</a>
+                     <form action="/delete_process" method="post">
+                       <input type="hidden" name="id" value="${title}" >
+                       <input type="submit" value="delete" >
+                     </form>
+                     `
         }
         response.writeHead(200)
-        response.end(templateHTML(title, list, content, control))
+        response.end(template.HTML(title, list, content, control))
       })
     })
   } else if (pathname === "/create") {
     fs.readdir("./data", (err, files) => {
       var title = "WEB - create"
-      var list = templateList(files)
-      var template = templateHTML(
+      var list = template.LIST(files)
+      var body = template.HTML(
         title,
         list,
         `
@@ -77,7 +54,7 @@ var app = http.createServer(function (request, response) {
         "" // control
       )
       response.writeHead(200)
-      response.end(template)
+      response.end(body)
     })
   } else if (pathname === "/create_process") {
     var body = ""
@@ -96,7 +73,7 @@ var app = http.createServer(function (request, response) {
     })
   } else if (pathname === "/update") {
     fs.readdir("data", (err, files) => {
-      var list = templateList(files)
+      var list = template.LIST(files)
       var control = ""
       fs.readFile(`data/${title}`, "utf-8", (err, content) => {
         if (title === undefined) {
@@ -108,7 +85,7 @@ var app = http.createServer(function (request, response) {
         }
         response.writeHead(200)
         response.end(
-          templateHTML(
+          template.HTML(
             title,
             list,
             `
@@ -144,6 +121,19 @@ var app = http.createServer(function (request, response) {
       fs.writeFile(`data/${title}`, description, "utf-8", (err) => {
         response.writeHead(302, { Location: `/?id=${title}` }) // 302 : page redirection
         response.end("success")
+      })
+    })
+  } else if (pathname === "/delete_process") {
+    var body = ""
+    request.on("data", (data) => {
+      body = body + data
+    })
+    request.on("end", () => {
+      var post = qs.parse(body)
+      var id = post.id
+      fs.unlink(`data/${id}`, function (err) {
+        response.writeHead(302, { Location: `/` })
+        response.end()
       })
     })
   } else {
