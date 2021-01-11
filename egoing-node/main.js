@@ -7,17 +7,28 @@ var path = require("path")
 
 var template = require("./lib/template.js")
 
+//import sanitizeHtml from "sanitize-html"
+
 var app = http.createServer(function (request, response) {
   var _url = request.url
   var queryData = url.parse(_url, true).query
   var pathname = url.parse(_url, true).pathname
-  var title = path.basename(queryData.id)
+  var title = queryData.id
+  // var sanitizedTitle = sanitizeHtml(title)
+  var filteredId = ""
+  if (title === undefined) {
+    var filteredId = ""
+  } else {
+    // path.parse 의 argument 는 string 형식만 받는다
+    var filteredId = path.parse(queryData.id).base
+  }
+  // var filteredIdpath = queryData.id ? path.parse(queryData.id).base : ""
 
   if (pathname === "/") {
     fs.readdir("data", (err, files) => {
       var list = template.LIST(files)
       var control = ""
-      fs.readFile(`data/${title}`, "utf-8", (err, content) => {
+      fs.readFile(`data/${filteredId}`, "utf-8", (err, content) => {
         if (title === undefined) {
           title = "welcome"
           content = "hello, node js"
@@ -75,7 +86,7 @@ var app = http.createServer(function (request, response) {
     fs.readdir("data", (err, files) => {
       var list = template.LIST(files)
       var control = ""
-      fs.readFile(`data/${title}`, "utf-8", (err, content) => {
+      fs.readFile(`data/${filteredId}`, "utf-8", (err, content) => {
         if (title === undefined) {
           title = "welcome"
           content = "hello, node js"
@@ -114,8 +125,9 @@ var app = http.createServer(function (request, response) {
       var id = post.id
       var title = post.title
       var description = post.description
+      let fileId = path.parse(id).base
 
-      fs.rename(`data/${id}`, `data/${title}`, (err) => {})
+      fs.rename(`data/${fileId}`, `data/${title}`, (err) => {})
 
       console.log(post)
       fs.writeFile(`data/${title}`, description, "utf-8", (err) => {
@@ -131,7 +143,8 @@ var app = http.createServer(function (request, response) {
     request.on("end", () => {
       var post = qs.parse(body)
       var id = post.id
-      fs.unlink(`data/${id}`, function (err) {
+      let fileId = path.parse(id).base
+      fs.unlink(`data/${fileId}`, function (err) {
         response.writeHead(302, { Location: `/` })
         response.end()
       })
