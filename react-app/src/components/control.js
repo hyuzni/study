@@ -16,10 +16,26 @@ class Control extends Component {
           </button>
         </li>
         <li>
-          <button value="update">update</button>
+          <button
+            value="update"
+            onClick={function (e) {
+              e.preventDefault()
+              this.props.onChangeMode(e.target.value)
+            }.bind(this)}
+          >
+            update
+          </button>
         </li>
         <li>
-          <button value="delete">delete</button>
+          <button
+            value="delete"
+            onClick={function (e) {
+              e.preventDefault()
+              this.props.onChangeMode(e.target.value)
+            }.bind(this)}
+          >
+            delete
+          </button>
         </li>
       </ul>
     )
