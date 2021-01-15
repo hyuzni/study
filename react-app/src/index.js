@@ -1,8 +1,27 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import "./index.css"
 import App from "./App"
-import reportWebVitals from "./reportWebVitals"
+import { createStore } from "redux"
+
+//https://eastflag.co.kr/react/scoreboard-advanced/redux-tutorial/
+const reducer = (state, action) => {
+  console.log(action)
+  if (action.type === "changeState") {
+    return action.payload.newState
+  }
+  return "State"
+}
+const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) // store 는 처음 생성 시 reducer function 을 실행함.
+console.log(store, store.getState())
+
+const action = {
+  type: "changeState",
+  payload: {
+    newState: "New State",
+  },
+}
+store.subscribe(() => console.log(store.getState()))
+store.dispatch(action)
 
 ReactDOM.render(
   <React.StrictMode>
@@ -10,8 +29,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 )
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals()
