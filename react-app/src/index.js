@@ -3,7 +3,6 @@ import ReactDOM from "react-dom"
 import App from "./App"
 import { createStore } from "redux"
 
-//https://eastflag.co.kr/react/scoreboard-advanced/redux-tutorial/
 const reducer = (state, action) => {
   console.log(action)
   if (action.type === "changeState") {
