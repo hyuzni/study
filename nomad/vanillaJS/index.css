@@ -1,6 +1,14 @@
 body {
-  background: red;
+  background: #ccc;
 }
 h1#title {
-  color: white;
+  color: #34495e;
+  transition: color 0.5s ease-in-out;
+}
+
+h1#title.clicked {
+  color: #7f8c8d;
+}
+.btn {
+  cursor: pointer;
 }

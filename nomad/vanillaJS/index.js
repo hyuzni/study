@@ -47,11 +47,11 @@ const calculator = {
 console.log(calculator.plus(1, 45))
 
 //const title = document.getElementById("title")
-const title = document.querySelector("#title")
+const title = document.querySelector("#title") // return the first child node
 // title is DOM
 // Document Object Model
 title.innerHTML = "inner HTML !"
-title.style.color = "red"
+//title.style.s = "red"
 console.dir(title)
 
 document.title = "change title"
@@ -64,6 +64,39 @@ window.addEventListener("resize", handleResize()) // 바로 호출되는 함수
 window.addEventListener("resize", handleResize) // 이벤트가 발생할 때만 실행되는 함수
 
 function handleClick(e) {
-  title.style.color = "black"
+  const hasClass = title.classList.contains("clicked")
+  console.log(hasClass)
+  if (!hasClass) {
+    title.classList.add("clicked")
+  } else {
+    title.classList.remove("clicked")
+  }
 }
-title.addEventListener("click", handleClick)
+title.addEventListener("click", () => {
+  title.classList.toggle("clicked")
+})
+
+// const age = prompt("How old are you")
+// console.log(age)
+
+// if (age >= 20 && age <= 22) {
+//   console.log("you can drink but you should not")
+// } else {
+//   console.log("you cant")
+// }
+
+const BASE_COLOR = "#34495e"
+
+// function init() {
+//   title.addEventListener("click", handleClick)
+// }
+// init()
+
+function handleOffline() {
+  console.log("it's offline")
+}
+function handleOnline() {
+  console.log("welcome back")
+}
+window.addEventListener("offline", handleOffline)
+window.addEventListener("online", handleOnline)
