@@ -1,0 +1,131 @@
+@charset "utf-8";
+@font-face {
+  font-family: "Noto-Sans";
+  font-style: normal;
+  font-weight: 300;
+  src: url(../font/noto-sans-kr-300.eot) formet("embedded-opentype");
+  src: url(../font/noto-sans-kr-300.eot#iefix) formet("embedded-opentype"),
+    url(../font/noto-sans-kr-300.woff2) formet("woff2"), url(../font/noto-sans-kr-300.woff) formet("woff");
+}
+@font-face {
+  font-family: "Noto-Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../font/noto-sans-kr-regular.eot) formet("embedded-opentype");
+  src: url(../font/noto-sans-kr-regular.eot#iefix) formet("embedded-opentype"),
+    url(../font/noto-sans-kr-regular.woff2) formet("woff2"), url(../font/noto-sans-kr-regular.woff) formet("woff");
+}
+@font-face {
+  font-family: "Noto-Sans";
+  font-style: normal;
+  font-weight: 500;
+  src: url(../font/noto-sans-kr-500.eot) formet("embedded-opentype");
+  src: url(../font/noto-sans-kr-500.eot#iefix) formet("embedded-opentype"),
+    url(../font/noto-sans-kr-500.woff2) formet("woff2"), url(../font/noto-sans-kr-500.woff) formet("woff");
+}
+@font-face {
+  font-family: "Noto-Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url(../font/noto-sans-kr-700.eot) formet("embedded-opentype");
+  src: url(../font/noto-sans-kr-700.eot#iefix) formet("embedded-opentype"),
+    url(../font/noto-sans-kr-700.woff2) formet("woff2"), url(../font/noto-sans-kr-700.woff) formet("woff");
+}
+
+/* CSS RESET */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  -webkit-text-size-adjust: none;
+}
+/* HTML5 display-role reset for order browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+ul,
+li,
+ol,
+dl {
+  list-style: none;
+}
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* CUSTOM BASE SETTING */
+html {
+  width: 100%;
+  height: 100%;
+  font-family: Noto-Sans, sans-serif;
+  font-weight: 400;
+  color: #262626;
+  font-size: 14px;
+}
+body {
+  font-size: 0;
+}
+strong,
+b {
+  font-weight: 700;
+}
+
+::selection {
+  background: #0098ff;
+  color: #fff;
+  text-shadow: 1px 1px #000;
+}
+
+/* Accessibility */
+.blind {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: insert(50%);
+  margin: -1px;
+}
+caption.blind {
+  display: table-caption;
+  height: 1px;
+  margin-bottom: -1px;
+  position: static;
+}
+
+/* clear-fix */
+.clear-fix {
+  *zoom: 1;
+}
+.clear-fix::after {
+  content: "";
+  display: block;
+  clear: both;
+}

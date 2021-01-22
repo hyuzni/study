@@ -1,0 +1,13 @@
+.wrap {
+  font-size: 1rem;
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  text-transform: uppercase; /* 대문자로 변경 */
+}
+img {
+  width: 100%;
+  height: auto;
+}

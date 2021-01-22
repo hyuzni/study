@@ -1,3 +1,14 @@
+body {
+  position: relative;
+  width: 1280px;
+  margin: 0 auto;
+  font-size: 1rem;
+}
+.js-clock {
+  color: white;
+  font-size: 3rem;
+}
+
 .form,
 .js-gretting {
   display: none;
