@@ -4,7 +4,9 @@
   "description": "just study",
   "main": "index.js",
   "scripts": {
-    "test": "hahahahahaha"
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "tailwindcss build tailwindcss/tailwind.css -o tailwindcss/build/tailwind.css"
   },
   "repository": {
     "type": "git",
@@ -17,11 +19,15 @@
   },
   "homepage": "https://github.com/hyuzni/study#readme",
   "dependencies": {
+    "autoprefixer": "^10.2.3",
     "create-react-app": "^4.0.1",
     "express": "^4.17.1",
     "image-downloader": "^4.0.2",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
     "redux": "^4.0.5",
-    "sanitize-html": "^2.3.0"
+    "sanitize-html": "^2.3.0",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "redux-devtools": "^3.7.0"
