@@ -32,3 +32,6 @@ something.propTypes = {
 1: propTypes.string.isRequired,
 2: propTypes.number.isRequired,
 }
+
+// es6 공부
+https://beomy.tistory.com/category/JavaScript

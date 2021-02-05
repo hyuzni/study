@@ -1,6 +1,9 @@
 import React from "react"
 import axios from "axios"
-import movie from "./Movie"
+import Movie from "./Movie"
+
+import "./App.css"
+import "./Base.css"
 
 // let something = ""
 // something.propTypes = {
@@ -30,6 +33,7 @@ class App extends React.Component {
         data: { movies },
       },
     } = await axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating")
+    // fetch() 보단 axios : fetch()의 layer 같은? 아이. npm install axios
     console.log(movies)
     this.setState({ movies, isLoading: false }) // state.movies : axios.movies 의 함축 표현. es6 표현
   }
@@ -39,6 +43,7 @@ class App extends React.Component {
     console.log("===> componentDidMount")
   }
   componentDidUpdate() {
+    // arg : prevProps, prevState, snapshot
     //setstate()
     console.log("===> componentDidUpdate")
   }
@@ -48,19 +53,28 @@ class App extends React.Component {
   render() {
     const { isLoading, movies } = this.state // es6 : this.state.isLoading
     return (
-      <h1>
-        {isLoading
-          ? "Loading..."
-          : movies.map((movie) => (
-              <movie
-                id={movie.id}
-                year={movie.year}
-                title={movie.title}
-                summary={movie.summary}
-                poster={movie.poster}
-              />
-            ))}
-      </h1>
+      <section className="container">
+        {isLoading ? (
+          <div className="loader">
+            <span className="loader__text">Loading...</span>
+          </div>
+        ) : (
+          <div className="movies">
+            {movies.map((movie) => {
+              // map 을 사용할 때 return은 필수. 에러는 안나지만 주의.
+              return (
+                <Movie
+                  key={movie.id}
+                  year={movie.year}
+                  title={movie.title}
+                  summary={movie.summary}
+                  poster={movie.medium_cover_image}
+                />
+              )
+            })}
+          </div>
+        )}
+      </section>
     )
   }
 }
