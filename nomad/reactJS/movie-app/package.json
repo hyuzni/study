@@ -15,9 +15,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "lint": "eslint . --fix"
   },
   "eslintConfig": {
+    "parser": "babel-eslint",
     "extends": [
       "react-app",
       "react-app/jest"
@@ -34,5 +36,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.19.0"
   }
 }

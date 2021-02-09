@@ -78,13 +78,5 @@ class App extends React.Component {
     )
   }
 }
-// function App() {
-//   return (
-//     <div>
-//       Hello
-//       <Potato name="test" />
-//     </div>
-//   )
-//}
 
 export default App
