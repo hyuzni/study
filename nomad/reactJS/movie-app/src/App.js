@@ -22,6 +22,7 @@ class App extends React.Component {
   state = {
     isLoading: true,
     movies: [],
+    12356 : 
   }
   getMovies = async () => {
     // async와 await 는 세트임. 혼자서 쓰일 수 없음. es6 문법 참고
