@@ -1,0 +1,27 @@
+{
+  "name": "vue3-study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "entities": "^4.5.0",
+    "esbuild": "^0.19.12",
+    "estree-walker": "^2.0.2",
+    "fsevents": "^2.3.3",
+    "nanoid": "^3.3.7",
+    "picocolors": "^1.0.0",
+    "postcss": "^8.4.33",
+    "rollup": "^4.9.6",
+    "source-map-js": "^1.0.2"
+  },
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^5.0.12"
+  }
+}
